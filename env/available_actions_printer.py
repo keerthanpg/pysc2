@@ -34,7 +34,7 @@ class AvailableActionsPrinter(base_env_wrapper.BaseEnvWrapper):
       for avail in obs.observation["available_actions"]:
         if avail not in self._seen:
           self._seen.add(avail)
-          self._print(self._action_spec.functions[avail].str(True))
+          # self._print(self._action_spec.functions[avail].str(True))
     return all_obs
 
   def _print(self, s):
