@@ -85,6 +85,28 @@ def run_thread_manual(agent_cls, agent_race, bot_race, map_name, visualize):
     if save_replay:
       env.save_replay(agent_cls._name_)
 
+def return_env(agent_cls, agent_race, bot_race, map_name, visualize):
+  step_mul=int(8)
+  difficulty="1"
+  game_steps_per_episode=int(0)
+  max_agent_steps=int(0)
+  screen_resolution=int(84)
+  minimap_resolution=int(64)
+  save_replay=False
+  env=sc2_env.SC2Env(
+      map_name=map_name,
+      agent_race=agent_race,
+      bot_race=bot_race,
+      difficulty=difficulty,
+      step_mul=step_mul,
+      game_steps_per_episode=game_steps_per_episode,
+      screen_size_px=(screen_resolution, screen_resolution),
+      minimap_size_px=(minimap_resolution, minimap_resolution),
+      visualize=visualize) 
+  return env
+
+
+
 def run_thread(agent_cls, map_name, visualize):
   with sc2_env.SC2Env(
       map_name=map_name,
